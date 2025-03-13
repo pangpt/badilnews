@@ -6,6 +6,7 @@ use App\Models\ArticleNews;
 use App\Models\Author;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class FrontController extends Controller
 {
@@ -61,9 +62,21 @@ class FrontController extends Controller
 
     public function category(Category $category)
     {
+        // Cek apakah view sesuai dengan slug ada di dalam folder `front`
+        $viewName = 'front.' . $category->slug;
+
+        if (View::exists($viewName)) {
+            return view($viewName, compact('category'));
+        } else {
+            abort(404); // Jika view tidak ditemukan, tampilkan 404
+        }
+    }
+
+    public function galeri(Category $category)
+    {
         $categories = Category::all();
 
-        return view('front.category', compact('category', 'categories'));
+        return view('front.galeri', compact('category', 'categories'));
     }
 
     public function search(Request $request)

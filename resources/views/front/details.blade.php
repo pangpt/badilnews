@@ -101,71 +101,47 @@
         <!-- Single Product Start -->
         <div class="container-fluid py-5">
             <div class="container py-5">
-                <ol class="breadcrumb justify-content-start mb-4">
+                {{-- <ol class="breadcrumb justify-content-start mb-4">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Pages</a></li>
                     <li class="breadcrumb-item active text-dark">Single Page</li>
-                </ol>
+                </ol> --}}
                 <div class="row g-4">
                     <div class="col-lg-8">
                         <div class="mb-4">
-                            <a href="#" class="h1 display-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+                            <h1 class="display-5">{{$articleNews->name}}</h1>
                         </div>
-                        <div class="position-relative rounded overflow-hidden mb-3">
-                            <img src="img/news-1.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                            <div class="position-absolute text-white px-4 py-2 bg-primary rounded" style="top: 20px; right: 20px;">                                              
-                                Busimess
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <!-- Tanggal di Kiri -->
+                            <small class="text-muted">
+                                <i class="fas fa-calendar-alt me-1"></i> 
+                                {{ Carbon::parse($articleNews->created_at)->setTimezone('Asia/Jakarta')->translatedFormat('l, d F Y H:i') }} WIB
+                            </small>
+
+                            <!-- Fitur Share di Kanan -->
+                            <div class="d-flex align-items-center">
+                                <h5 class="mb-0 me-3">Share:</h5>
+
+                                <!-- Facebook -->
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" target="_blank" class="btn btn-square rounded-circle border-primary text-dark me-2">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+
+                                <!-- Twitter (Sekarang X) -->
+                                <a href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text={{ urlencode($articleNews->name) }}" target="_blank" class="btn btn-square rounded-circle border-primary text-dark me-2">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+
+                                <!-- WhatsApp -->
+                                <a href="https://wa.me/?text={{ urlencode($articleNews->name . ' - ' . url()->current()) }}" target="_blank" class="btn btn-square rounded-circle border-primary text-dark me-2">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
                             </div>
+
                         </div>
-                        <div class="d-flex justify-content-between">
-                            <a href="#" class="text-dark link-hover me-3"><i class="fa fa-clock"></i> 06 minute read</a>
-                            <a href="#" class="text-dark link-hover me-3"><i class="fa fa-eye"></i> 3.5k Views</a>
-                            <a href="#" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> 05 Comment</a>
-                            <a href="#" class="text-dark link-hover"><i class="fa fa-arrow-up"></i> 1.5k Share</a>
-                        </div>
-                        <p class="my-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                        </p>
-                        <p class="my-4">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                        </p>
-                        <div class="bg-light p-4 mb-4 rounded border-start border-3 border-primary">
-                            <h1 class="mb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h1>
-                        </div>
-                        <div class="row g-4">
-                            <div class="col-6">
-                                <div class="rounded overflow-hidden">
-                                    <img src="img/news-6.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="rounded overflow-hidden">
-                                    <img src="img/news-5.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <p class="my-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                            Lorem Ipsum is simply dummy
-                        </p>
-                        <p class="my-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been ther took It has survived not only five centuries, but also the leap into electronic
-                        </p>
-                        <div class="d-flex">
-                            <div class="me-2">
-                                <span class="fas fa-check-circle mb-3 fs-5"> Lorem Ipsum is simply dummy text of</span>
-                                <span class="fas fa-check-circle mb-3 fs-5"> Lorem Ipsum is simply dummy text of</span>
-                                <span class="fas fa-check-circle mb-3 fs-5"> Lorem Ipsum is simply dummy text of</span>
-                            </div>
-                            <div class="ms-2">
-                                <span class="fas fa-check-circle mb-3 fs-5"> Lorem Ipsum is simply dummy text of</span>
-                                <span class="fas fa-check-circle mb-3 fs-5"> Lorem Ipsum is simply dummy text of</span>
-                                <span class="fas fa-check-circle mb-3 fs-5"> Lorem Ipsum is simply dummy text of</span>
-                            </div>
-                        </div>
-                        <p class="my-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been ther took It has survived not only five centuries, but also the leap into electronic
+
+                        <p class="my-4">{!! str_replace('<img', '<img class="img-fluid"', html_entity_decode($articleNews->content)) !!}</p>
+
                         </p>
                         <div class="tab-class">
                             <div class="d-flex justify-content-between border-bottom mb-4">
@@ -189,13 +165,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                                <div class="d-flex align-items-center">
-                                    <h5 class="mb-0 me-3">Share:</h5>
-                                    <i class="fab fa-facebook-f link-hover btn btn-square rounded-circle border-primary text-dark me-2"></i>
-                                    <i class="btn fab bi-twitter link-hover btn btn-square rounded-circle border-primary text-dark me-2"></i>
-                                    <i class="btn fab fa-instagram link-hover btn btn-square rounded-circle border-primary text-dark me-2"></i>
-                                    <i class="btn fab fa-linkedin-in link-hover btn btn-square rounded-circle border-primary text-dark"></i>
-                                </div>
+                                
                             </div>
                             <div class="tab-content">
                                 <div id="tab-1" class="tab-pane fade show active">
@@ -317,84 +287,18 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 col-xl-4">
                         <div class="row g-4">
                             <div class="col-12">
                                 <div class="p-3 rounded border">
-                                    <div class="input-group w-100 mx-auto d-flex mb-4">
-                                        <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
-                                        <span id="search-icon-1" class="btn btn-primary input-group-text p-3"><i class="fa fa-search text-white"></i></span>
-                                    </div>
-                                    <h4 class="mb-4">Popular Categories</h4>
-                                    <div class="row g-2">
-                                        <div class="col-12">
-                                            <a href="#" class="link-hover btn btn-light w-100 rounded text-uppercase text-dark py-3">
-                                                Life Style
-                                            </a>
-                                        </div>
-                                        <div class="col-12">
-                                            <a href="#" class="link-hover btn btn-light w-100 rounded text-uppercase text-dark py-3">
-                                                Fashion
-                                            </a>
-                                        </div>
-                                        <div class="col-12">
-                                            <a href="#" class="link-hover btn btn-light w-100 rounded text-uppercase text-dark py-3">
-                                                Relationship
-                                            </a>
-                                        </div>
-                                        <div class="col-12">
-                                            <a href="#" class="link-hover btn btn-light w-100 rounded text-uppercase text-dark py-3">
-                                                Art & Culture
-                                            </a>
-                                        </div>
-                                        <div class="col-12">
-                                            <a href="#" class="link-hover btn btn-light w-100 rounded text-uppercase text-dark py-3">
-                                                Self Development
-                                            </a>
-                                        </div>
-                                        <div class="col-12">
-                                            <a href="#" class="link-hover btn btn-light w-100 rounded text-uppercase text-dark py-3 mb-4">
-                                                travel & tourism
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <h4 class="my-4">Stay Connected</h4>
-                                    <div class="row g-4">
-                                        <div class="col-12">
-                                            <a href="#" class="w-100 rounded btn btn-primary d-flex align-items-center p-3 mb-2">
-                                                <i class="fab fa-facebook-f btn btn-light btn-square rounded-circle me-3"></i>
-                                                <span class="text-white">13,977 Fans</span>
-                                            </a>
-                                            <a href="#" class="w-100 rounded btn btn-danger d-flex align-items-center p-3 mb-2">
-                                                <i class="fab fa-twitter btn btn-light btn-square rounded-circle me-3"></i>
-                                                <span class="text-white">21,798 Follower</span>
-                                            </a>
-                                            <a href="#" class="w-100 rounded btn btn-warning d-flex align-items-center p-3 mb-2">
-                                                <i class="fab fa-youtube btn btn-light btn-square rounded-circle me-3"></i>
-                                                <span class="text-white">7,999 Subscriber</span>
-                                            </a>
-                                            <a href="#" class="w-100 rounded btn btn-dark d-flex align-items-center p-3 mb-2">
-                                                <i class="fab fa-instagram btn btn-light btn-square rounded-circle me-3"></i>
-                                                <span class="text-white">19,764 Follower</span>
-                                            </a>
-                                            <a href="#" class="w-100 rounded btn btn-secondary d-flex align-items-center p-3 mb-2">
-                                                <i class="bi-cloud btn btn-light btn-square rounded-circle me-3"></i>
-                                                <span class="text-white">31,999 Subscriber</span>
-                                            </a>
-                                            <a href="#" class="w-100 rounded btn btn-warning d-flex align-items-center p-3 mb-4">
-                                                <i class="fab fa-dribbble btn btn-light btn-square rounded-circle me-3"></i>
-                                                <span class="text-white">37,999 Subscriber</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <h4 class="my-4">Popular News</h4>
+                                    <h4 class="my-4">Berita Terpopuler</h4>
                                     <div class="row g-4">
                                         <div class="col-12">
                                             <div class="row g-4 align-items-center features-item">
                                                 <div class="col-4">
                                                     <div class="rounded-circle position-relative">
                                                         <div class="overflow-hidden rounded-circle">
-                                                            <img src="img/features-sports-1.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
+                                                            <img src="{{asset('img/features-sports-1.jpg')}}" class="img-zoomin img-fluid rounded-circle w-100" alt="">
                                                         </div>
                                                         <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
                                                     </div>
@@ -415,7 +319,7 @@
                                                 <div class="col-4">
                                                     <div class="rounded-circle position-relative">
                                                         <div class="overflow-hidden rounded-circle">
-                                                            <img src="img/features-technology.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
+                                                            <img src="{{asset('img/features-technology.jpg')}}" class="img-zoomin img-fluid rounded-circle w-100" alt="">
                                                         </div>
                                                         <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
                                                     </div>
@@ -436,7 +340,7 @@
                                                 <div class="col-4">
                                                     <div class="rounded-circle position-relative">
                                                         <div class="overflow-hidden rounded-circle">
-                                                            <img src="img/features-fashion.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
+                                                            <img src="{{asset('img/features-fashion.jpg')}}" class="img-zoomin img-fluid rounded-circle w-100" alt="">
                                                         </div>
                                                         <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
                                                     </div>
@@ -457,7 +361,7 @@
                                                 <div class="col-4">
                                                     <div class="rounded-circle position-relative">
                                                         <div class="overflow-hidden rounded-circle">
-                                                            <img src="img/features-life-style.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
+                                                            <img src="{{asset('img/features-life-style.jpg')}}" class="img-zoomin img-fluid rounded-circle w-100" alt="">
                                                         </div>
                                                         <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
                                                     </div>
@@ -525,7 +429,7 @@
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="position-relative banner-2">
-                                                <img src="img/banner-2.jpg" class="img-fluid w-100 rounded" alt="">
+                                                <img src="{{asset('img/banner-2.jpg')}}" class="img-fluid w-100 rounded" alt="">
                                                 <div class="text-center banner-content-2">
                                                     <h6 class="mb-2">The Most Populer</h6>
                                                     <p class="text-white mb-2">News & Magazine WP Theme</p>
@@ -691,15 +595,7 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-primary border-2 border-white rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
 
-        
-        <!-- JavaScript Libraries -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
+    
     </body>
+    
 @endsection

@@ -208,7 +208,7 @@
                                                 <!-- Konten Artikel -->
                                                 <div class="d-flex flex-column flex-grow-1 p-3">
                                                     <a href="#" class="text-body" style="color:red !important">{{ $article->category->name }}</a>
-                                                    <a href="#" class="h6 article-title" title="{{ $article->name }}">
+                                                    <a href="{{route('front.details', $article->slug)}}" class="h6 article-title" title="{{ $article->name }}">
                                                         {{substr($article->name, 0, 60)}}{{strlen($article->name) > 60 ? '...' : ''}}
                                                     </a>
 
@@ -616,16 +616,5 @@
         </div>
         <!-- Back to Top -->
         <a href="#" class="btn btn-primary border-2 border-white rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
-
-        
-        <!-- JavaScript Libraries -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="{{asset('lib/easing/easing.min.js')}}"></script>
-        <script src="{{asset('lib/waypoints/waypoints.min.js')}}"></script>
-        <script src="{{asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
-
-        <!-- Template Javascript -->
-        <script src="{{asset('customjs/main.js')}}"></script>
     </body>
 @endsection
