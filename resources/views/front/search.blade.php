@@ -1,34 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-    <head>
-        <meta charset="utf-8">
-        <title>Newsers - Free HTML Magazine Template</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
-
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&family=Roboto:wght@100;600;800&display=swap" rel="stylesheet"> 
-
-        <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-        <!-- Libraries Stylesheet -->
-        <link href="{{asset('lib/animate/animate.min.css')}}" rel="stylesheet">
-        <link href="{{asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
-
-
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-
-        <!-- Template Stylesheet -->
-        <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    </head>
-
+@extends('front.master')
+@section('content')
     <body>
 
         <!-- Spinner Start -->
@@ -101,7 +72,15 @@
                             </div>
                         </div>
                         <div class="top-link flex-lg-wrap">
-                            <i class="fas fa-calendar-alt text-white border-end border-secondary pe-2 me-2"> <span class="text-body">Tuesday, Sep 12, 2024</span></i>
+                            @php
+                                use Carbon\Carbon;
+                                setlocale(LC_TIME, 'id_ID');
+                                \Carbon\Carbon::setLocale('id');
+                            @endphp
+
+                            <i class="fas fa-calendar-alt text-white border-end border-secondary pe-2 me-2">
+                                <span class="text-body">{{ Carbon::now()->translatedFormat('l, d F Y') }}</span>
+                            </i>
                             <div class="d-flex icon">
                                 <p class="mb-0 text-white me-2">Follow Us:</p>
                                 <a href="" class="me-2"><i class="fab fa-facebook-f text-body link-hover"></i></a>
@@ -504,5 +483,4 @@
         <!-- Template Javascript -->
         <script src="{{asset('customjs/main.js')}}"></script>
     </body>
-
-</html>
+@endsection

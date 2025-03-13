@@ -1,36 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-    <head>
-        <meta charset="utf-8">
-        <title>Newsers - Free HTML Magazine Template</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
-
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&family=Roboto:wght@100;600;800&display=swap" rel="stylesheet"> 
-
-        <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-        <!-- Libraries Stylesheet -->
-        <link href="{{asset('lib/animate/animate.min.css')}}" rel="stylesheet">
-        <link href="{{asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
-
-
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-
-        <!-- Template Stylesheet -->
-        <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    </head>
-
+@extends('front.master')
+@section('content')
     <body>
-
         <!-- Spinner Start -->
         <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
             <div class="spinner-grow text-primary" role="status"></div>
@@ -44,8 +14,8 @@
                 <div class="container px-0">
                     <nav class="navbar navbar-light navbar-expand-xl">
                         <a href="index.html" class="navbar-brand mt-3">
-                            <p class="text-primary display-6 mb-2" style="line-height: 0;">Newsers</p>
-                            <small class="text-body fw-normal" style="letter-spacing: 12px;">Nespaper</small>
+                            <p class="text-primary display-6 mb-2" style="line-height: 0;">Pabonews</p>
+                            <small class="text-body fw-normal" style="letter-spacing: 12px;">Informatif</small>
                         </a>
                         <div class="d-flex align-items-center">
                             <button class="btn-search btn btn-md-square rounded-circlemy-auto d-block d-lg-none me-2 border-0" data-bs-toggle="modal" data-bs-target="#searchModal">
@@ -96,21 +66,26 @@
                             <div class="overflow-hidden" style="width: 735px;">
                                 <div id="note" class="ps-2">
                                     <img src="{{asset('img/features-fashion.jpg')}}" class="img-fluid rounded-circle border border-3 border-primary me-2" style="width: 30px; height: 30px;" alt="">
-                                    <a href="#"><p class="text-white mb-0 link-hover">Newsan unknown printer took a galley of type andscrambled Newsan.</p></a>
+                                    <a href="#"><p class="text-white mb-0 link-hover">{{ $latest_featured_article->name }}</p></a>
                                 </div>
                             </div>
                         </div>
                         <div class="top-link flex-lg-wrap">
-                            <i class="fas fa-calendar-alt text-white border-end border-secondary pe-2 me-2"> <span class="text-body">Tuesday, Sep 12, 2024</span></i>
+                            @php
+                                use Carbon\Carbon;
+                                setlocale(LC_TIME, 'id_ID');
+                                \Carbon\Carbon::setLocale('id');
+                            @endphp
+
+                            <i class="fas fa-calendar-alt text-white border-end border-secondary pe-2 me-2">
+                                <span class="text-body">{{ Carbon::now()->translatedFormat('l, d F Y') }}</span>
+                            </i>
+
                             <div class="d-flex icon">
-                                <p class="mb-0 text-white me-2">Follow Us:</p>
+                                <p class="mb-0 text-white me-2">Ikuti Kami:</p>
                                 <a href="" class="me-2"><i class="fab fa-facebook-f text-body link-hover"></i></a>
-                                <a href="" class="me-2"><i class="fab fa-twitter text-body link-hover"></i></a>
                                 <a href="" class="me-2"><i class="fab fa-instagram text-body link-hover"></i></a>
                                 <a href="" class="me-2"><i class="fab fa-youtube text-body link-hover"></i></a>
-                                <a href="" class="me-2"><i class="fab fa-linkedin-in text-body link-hover"></i></a>
-                                <a href="" class="me-2"><i class="fab fa-skype text-body link-hover"></i></a>
-                                <a href="" class=""><i class="fab fa-pinterest-p text-body link-hover"></i></a>
                             </div>
                         </div>
                     </div>
@@ -143,28 +118,28 @@
 
         <div class="container-fluid populer-news">
             <!-- Banner Start -->
-        <div class="container-fluid" style="background: linear-gradient(rgba(202, 203, 185, 1), rgba(202, 203, 185, 1));">
-            <div class="container py-3 mt-3"> 
-                <div class="row g-4 align-items-center">
-                    <div class="col-lg-7">
-                        <h1 class="mb-4 text-primary">Newsers</h1>
-                        <h1 class="mb-4">Get Every Weekly Updates</h1>
-                        <p class="text-dark mb-4 pb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        </p>
-                        <div class="position-relative mx-auto">
-                            <input class="form-control w-100 py-3 rounded-pill" type="email" placeholder="Your Busines Email">
-                            <button type="submit" class="btn btn-primary py-3 px-5 position-absolute rounded-pill text-white h-100" style="top: 0; right: 0;">Subscribe Now</button>
+            <div class="container-fluid" style="background: linear-gradient(rgba(202, 203, 185, 1), rgba(202, 203, 185, 1));">
+                <div class="container py-3 mt-3"> 
+                    <div class="row g-4 align-items-center">
+                        <div class="col-lg-7">
+                            <h1 class="mb-4 text-primary">Newsers</h1>
+                            <h1 class="mb-4">Get Every Weekly Updates</h1>
+                            <p class="text-dark mb-4 pb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            </p>
+                            <div class="position-relative mx-auto">
+                                <input class="form-control w-100 py-3 rounded-pill" type="email" placeholder="Your Busines Email">
+                                <button type="submit" class="btn btn-primary py-3 px-5 position-absolute rounded-pill text-white h-100" style="top: 0; right: 0;">Subscribe Now</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="rounded">
-                            <img src="img/banner-img.jpg" class="img-fluid rounded w-100 rounded" alt="">
+                        <div class="col-lg-5">
+                            <div class="rounded">
+                                <img src="img/banner-img.jpg" class="img-fluid rounded w-100 rounded" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Banner End -->
+            <!-- Banner End -->
             <div class="container py-3">
                 <div class="tab-class mb-4">
                         <div class="col-lg-12 col-xl-12">
@@ -176,9 +151,6 @@
                                             <div class="col-lg-6 d-flex flex-column image-container">
                                                 <div class="position-relative rounded overflow-hidden w-100 h-100">
                                                     <img src="{{Storage::url($latest_featured_article->thumbnail)}}" class="img-zoomin img-fluid rounded w-100" alt="">
-                                                    {{-- <div class="position-absolute text-white px-4 py-2 bg-primary rounded category-badge">
-                                                        {{$latest_featured_article->category->name}}
-                                                    </div> --}}
                                                 </div>
                                             </div>
 
@@ -186,7 +158,7 @@
                                         <div class="col-lg-6 d-flex align-items-center border-top border-bottom border-dark text-container">
                                             <div class="p-4 d-flex flex-column justify-content-center w-100 h-100">
                                                 <a href="#" class="text-body" style="color:red !important">{{$latest_featured_article->category->name}}</a>
-                                                <a href="#" class="h4 article-title">{{$latest_featured_article->name}}</a>
+                                                <a href="{{route('front.details', $latest_featured_article->slug)}}" class="h4 article-title">{{$latest_featured_article->name}}</a>
                                                 <p class="article-description">
                                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                                 </p>
@@ -299,7 +271,7 @@
                                             </div>
                                         </div>
                                     </div>
-</div>
+                                </div>
                                 <div class="mt-5 lifestyle">
                                     <div class="border-bottom mb-4">
                                         <h1 class="mb-4">Life Style</h1>
@@ -656,5 +628,4 @@
         <!-- Template Javascript -->
         <script src="{{asset('customjs/main.js')}}"></script>
     </body>
-
-</html>
+@endsection

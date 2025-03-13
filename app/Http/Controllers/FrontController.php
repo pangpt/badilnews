@@ -66,11 +66,6 @@ class FrontController extends Controller
         return view('front.category', compact('category', 'categories'));
     }
 
-    public function details (ArticleNews $articleNews)
-    {
-        return view('front.details', compact('articleNews'));
-    }
-
     public function search(Request $request)
     {
         $request->validate([
@@ -85,5 +80,16 @@ class FrontController extends Controller
         ->where('name', 'like', '%' . $keyword . '%')->paginate(6);
         
         return view('front.search', compact('articles','keyword','categories'));
+    }
+
+    public function details (ArticleNews $articleNews)
+    {
+        $categories = Category::all();
+        $latest_featured_article = ArticleNews::with(['category'])
+        ->where('is_featured', 'featured')
+        ->latest('updated_at')
+        ->first();
+
+        return view('front.details', compact('articleNews', 'categories','latest_featured_article'));
     }
 }
