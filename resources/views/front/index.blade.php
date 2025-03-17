@@ -32,24 +32,28 @@
 
                         <div class="collapse navbar-collapse bg-light py-3" id="navbarCollapse">
                             <div class="navbar-nav mx-auto border-top">
-                              @foreach($categories as $category)
-                                <a href="{{route('front.category', $category->slug)}}" class="nav-item nav-link">{{$category->name}}</a>
-                              @endforeach
+                                <a href="{{ route('front.galeri') }}" class="nav-item nav-link">Galeri</a>
+                                <a href="{{ route('front.berita') }}" class="nav-item nav-link">Berita</a>
+                                <a href="{{ route('front.opini') }}" class="nav-item nav-link">Opini</a>
+                                <a href="{{ route('front.kontak') }}" class="nav-item nav-link">Kontak</a>
                             </div>
                             <div class="d-none d-lg-flex flex-nowrap border-top pt-3 pt-xl-0">
                                 <div class="d-flex">
-                                    <img src="{{asset('img/weather-icon.png')}}" class="img-fluid w-100 me-2" alt="">
+                                    <img src="{{ asset('img/weather-icon.png') }}" class="img-fluid w-100 me-2" alt="">
                                     <div class="d-flex align-items-center">
                                         <strong class="fs-4 text-secondary">31°C</strong>
                                         <div class="d-flex flex-column ms-2" style="width: 150px;">
                                             <span class="text-body">NEW YORK,</span>
-                                            <small>Mon. 10 jun 2024</small>
+                                            <small>Mon. 10 Jun 2024</small>
                                         </div>
                                     </div>
                                 </div>
-                                <button class="btn-search btn border border-primary btn-md-square rounded-circle bg-white my-auto" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
+                                <button class="btn-search btn border border-primary btn-md-square rounded-circle bg-white my-auto" data-bs-toggle="modal" data-bs-target="#searchModal">
+                                    <i class="fas fa-search text-primary"></i>
+                                </button>
                             </div>
                         </div>
+
                     </nav>
                 </div>
             </div>

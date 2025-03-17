@@ -2,6 +2,8 @@
 @section('content')
 
     <body>
+
+
         <!-- Navbar start -->
         <div class="container-fluid sticky-top px-0">
             <div class="container-fluid bg-light">
@@ -64,7 +66,7 @@
                             <div class="overflow-hidden" style="width: 735px;">
                                 <div id="note" class="ps-2">
                                     <img src="{{asset('img/features-fashion.jpg')}}" class="img-fluid rounded-circle border border-3 border-primary me-2" style="width: 30px; height: 30px;" alt="">
-                                    <a href="#"><p class="text-white mb-0 link-hover">{{ $latest_featured_article->name }}</p></a>
+                                    {{-- <a href="#"><p class="text-white mb-0 link-hover">{{ $latest_featured_article->name }}</p></a> --}}
                                 </div>
                             </div>
                         </div>
@@ -99,86 +101,101 @@
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content rounded-0">
                     <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form method="GET" action="{{route('front.search')}}" class="modal-body d-flex align-items-center">
+                    <div class="modal-body d-flex align-items-center">
                         <div class="input-group w-75 mx-auto d-flex">
-                            @csrf
-                            <input type="text" name="keyword" class="form-control p-3" placeholder="Cari" aria-describedby="search-icon-1">
-                            <button type="submit" id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></button>
+                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
         <!-- Modal Search End -->
 
 
-        <!-- Single Product Start -->
+        <!-- Contact Us Start -->
         <div class="container-fluid py-5">
             <div class="container py-5">
-                <div class="lifestyle">
-                    <div class="border-bottom mb-4">
-                        <h1 class="mb-4 text-center">Galeri Kami</h1>
-                    </div>
+                <div class="bg-light rounded p-5">
                     <div class="row g-4">
-                        <div class="col-lg-4">
-                            <div class="lifestyle-item rounded">
-                                <img src="{{asset('img/lifestyle-2.jpg')}}" class="img-fluid w-100 rounded" alt="">
-                                <div class="lifestyle-content">
-                                <div class="mt-auto text-center">
-                                    <a href="#" class="h4 text-white link-hover">There are many variations of passages of Lorem Ipsum available,</a>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="lifestyle-item rounded">
-                                <img src="{{asset('img/lifestyle-2.jpg')}}" class="img-fluid w-100 rounded" alt="">
-                                <div class="lifestyle-content">
-                                <div class="mt-auto text-center">
-                                    <a href="#" class="h4 text-white link-hover">There are many variations of passages of Lorem Ipsum available,</a>
-                                </div>
+                        <div class="col-lg-5">
+                            <div class="">
+                                <h1 class="mb-4">General Customer Care & Technical Support</h1>
+                                <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+                                <div class="rounded">
+                                    <iframe class="rounded w-100" 
+                                    style="height: 425px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.279534607635!2d120.3471688!3d-4.5436264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbdef86efc2d923%3A0x54653972c56141e3!2sPengadilan%20Agama%20Watampone!5e0!3m2!1sid!2sid!4v1742219276726!5m2!1sid!2sid8" 
+                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4">
-                            <div class="lifestyle-item rounded">
-                                <img src="{{asset('img/lifestyle-2.jpg')}}" class="img-fluid w-100 rounded" alt="">
-                                <div class="lifestyle-content">
-                                <div class="mt-auto text-center">
-                                    <a href="#" class="h4 text-white link-hover">There are many variations of passages of Lorem Ipsum available,</a>
+                        <div class="col-lg-7">
+                            <form action="" class="mb-4">
+                                <div class="row g-4">
+                                    <div class="col-lg-6">
+                                        <input type="text" class="w-100 form-control border-0 py-3" name="name" placeholder="Your Name">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="email" class="w-100 form-control border-0 py-3" name="email" placeholder="Enter Your Email">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="w-100 form-control border-0 py-3" name="phone" placeholder="Enter Your Phone">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="w-100 form-control border-0 py-3" name="subject" placeholder="Subject">
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea class="w-100 form-control border-0" rows="6" cols="10" placeholder="Your Message"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="w-100 btn btn-primary form-control py-3" type="submit">Submit Now</button>
+                                    </div>
                                 </div>
+                            </form>
+                            <div class="row g-4">
+                                <div class="col-xl-6">
+                                    <div class="d-flex p-4 rounded bg-white">
+                                        <i class="fas fa-map-marker-alt fa-2x text-primary me-4"></i>
+                                        <div>
+                                            <h4>Alamat</h4>
+                                            <p class="mb-0">Jl. Yos Sudarso No.49A, Tipojong, Kec. Tanete Riattang Tim., Kabupaten Bone, Sulawesi Selatan 92715</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="lifestyle-item rounded">
-                                <img src="{{asset('img/lifestyle-2.jpg')}}" class="img-fluid w-100 rounded" alt="">
-                                <div class="lifestyle-content">
-                                <div class="mt-auto text-center">
-                                    <a href="#" class="h4 text-white link-hover">There are many variations of passages of Lorem Ipsum available,</a>
+                                <div class="col-xl-6">
+                                    <div class="d-flex p-4 rounded bg-white">
+                                        <i class="fas fa-envelope fa-2x text-primary me-4"></i>
+                                        <div>
+                                            <h4>Email</h4>
+                                            <p class="mb-0">pawatampone1a@gmail.com</p>
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class="col-xl-6">
+                                    <div class="d-flex p-4 rounded bg-white">
+                                        <i class="fa fa-phone-alt fa-2x text-primary me-4"></i>
+                                        <div>
+                                            <h4>Telephone</h4>
+                                            <p class="mb-0">(+012) 3456 7890</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="lifestyle-item rounded">
-                                <img src="{{asset('img/lifestyle-2.jpg')}}" class="img-fluid w-100 rounded" alt="">
-                                <div class="lifestyle-content">
-                                <div class="mt-auto text-center">
-                                    <a href="#" class="h4 text-white link-hover">There are many variations of passages of Lorem Ipsum available,</a>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="lifestyle-item rounded">
-                                <img src="{{asset('img/lifestyle-2.jpg')}}" class="img-fluid w-100 rounded" alt="">
-                                <div class="lifestyle-content">
-                                <div class="mt-auto text-center">
-                                    <a href="#" class="h4 text-white link-hover">There are many variations of passages of Lorem Ipsum available,</a>
-                                </div>
+                                <div class="col-xl-6">
+                                    <div class="d-flex p-4 rounded bg-white">
+                                        <i class="fa fa-share-alt fa-2x text-primary me-4"></i>
+                                        <div>
+                                            <h4>Share</h4>
+                                            <div class="d-flex">
+                                                <a class="me-3" href=""><i class="fab fa-twitter text-dark link-hover"></i></a>
+                                                <a class="me-3" href=""><i class="fab fa-facebook-f text-dark link-hover"></i></a>
+                                                <a class="me-3" href=""><i class="fab fa-youtube text-dark link-hover"></i></a>
+                                                <a class="" href=""><i class="fab fa-linkedin-in text-dark link-hover"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -186,9 +203,9 @@
                 </div>
             </div>
         </div>
-        <!-- Single Product End -->
-
-
+        <!-- Contact Us End -->
+        
+        
         <!-- Footer Start -->
         <div class="container-fluid bg-dark footer py-5">
             <div class="container py-5">
@@ -336,7 +353,16 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-primary border-2 border-white rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
 
-    
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
     </body>
-    
+
 @endsection

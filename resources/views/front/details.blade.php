@@ -7,36 +7,50 @@
                 <div class="container px-0">
                     <nav class="navbar navbar-light navbar-expand-xl">
                         <a href="index.html" class="navbar-brand mt-3">
-                            <p class="text-primary display-6 mb-2" style="line-height: 0;">Newsers</p>
-                            <small class="text-body fw-normal" style="letter-spacing: 12px;">Nespaper</small>
+                            <p class="text-primary display-6 mb-2" style="line-height: 0;">Pabonews</p>
+                            <small class="text-body fw-normal" style="letter-spacing: 12px;">Informatif</small>
                         </a>
-                        <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                            <span class="fa fa-bars text-primary"></span>
-                        </button>
+                        <div class="d-flex align-items-center">
+                            <button class="btn-search btn btn-md-square rounded-circlemy-auto d-block d-lg-none me-2 border-0" data-bs-toggle="modal" data-bs-target="#searchModal">
+                              <i class="fas fa-search text-primary"></i>
+                            </button>
+
+
+                            <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                                <span class="fa fa-bars text-primary"></span>
+                            </button>
+                        </div>
+
+                        
+
                         <div class="collapse navbar-collapse bg-light py-3" id="navbarCollapse">
                             <div class="navbar-nav mx-auto border-top">
-                                @foreach($categories as $category)
-                                    <a href="{{route('front.category', $category->slug)}}" class="nav-item nav-link">{{$category->name}}</a>
-                                @endforeach
+                                <a href="{{ route('front.galeri') }}" class="nav-item nav-link">Galeri</a>
+                                <a href="{{ route('front.berita') }}" class="nav-item nav-link">Berita</a>
+                                <a href="{{ route('front.opini') }}" class="nav-item nav-link">Opini</a>
+                                <a href="{{ route('front.kontak') }}" class="nav-item nav-link">Kontak</a>
                             </div>
-                            <div class="d-flex flex-nowrap border-top pt-3 pt-xl-0">
+                            <div class="d-none d-lg-flex flex-nowrap border-top pt-3 pt-xl-0">
                                 <div class="d-flex">
-                                    <img src="img/weather-icon.png" class="img-fluid w-100 me-2" alt="">
+                                    <img src="{{ asset('img/weather-icon.png') }}" class="img-fluid w-100 me-2" alt="">
                                     <div class="d-flex align-items-center">
                                         <strong class="fs-4 text-secondary">31°C</strong>
                                         <div class="d-flex flex-column ms-2" style="width: 150px;">
                                             <span class="text-body">NEW YORK,</span>
-                                            <small>Mon. 10 jun 2024</small>
+                                            <small>Mon. 10 Jun 2024</small>
                                         </div>
                                     </div>
                                 </div>
-                                <button class="btn-search btn border border-primary btn-md-square rounded-circle bg-white my-auto" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
+                                <button class="btn-search btn border border-primary btn-md-square rounded-circle bg-white my-auto" data-bs-toggle="modal" data-bs-target="#searchModal">
+                                    <i class="fas fa-search text-primary"></i>
+                                </button>
                             </div>
                         </div>
+
                     </nav>
                 </div>
             </div>
-            <div class="container-fluid topbar bg-dark d-none d-lg-block">
+            <div class="container-fluid topbar bg-dark">
                 <div class="container px-0">
                     <div class="topbar-top d-flex justify-content-between flex-lg-wrap">
                         <div class="top-info flex-grow-0">
@@ -74,6 +88,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
         <!-- Navbar End -->
 
