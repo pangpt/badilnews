@@ -155,7 +155,10 @@
 
                         </div>
 
-                        <p class="my-4">{!! str_replace('<img', '<img class="img-fluid"', html_entity_decode($articleNews->content)) !!}</p>
+                        <p class="my-4">
+                            {!! str_replace('http://127.0.0.1/storage/', asset('storage').'/', html_entity_decode($articleNews->content)) !!}
+                        </p>
+                        
 
                         </p>
                         <div class="tab-class">
